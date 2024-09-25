@@ -31,19 +31,18 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import {ref} from 'vue'
+import {useRoute} from 'vue-router'
 
 import useEventsBus from '/@/composables/useEventsBus'
 
 import PageWrapper from '@/components/PageWrapper.vue'
 
 /*Component*/
-import { pageRoute } from './components/FormHelper'
-import FormData from './components/FormData.vue'
 import Table from "./components/Table.vue";
 import saleStore from "/@/store/module/sale";
 import {ElMessage} from "element-plus";
+import FormData from "/@/pages/dashboard/components/FormData.vue";
 
 const {emit} = useEventsBus()
 

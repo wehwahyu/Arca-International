@@ -1,6 +1,6 @@
 <template>
-  <el-form :model="store.data" :rules="formRules" :disabled="mode === 'detail'" ref="formRef" label-position="left"
-    label-width="150px" class="w-full gap-2 flex flex-col" v-if="!store.loading" @submit.prevent="handleSubmitForm">
+  <el-form :model="saleStore.formData" :rules="formRules" :disabled="mode === 'detail'" ref="formRef" label-position="left"
+    label-width="150px" class="w-full gap-2 flex flex-col" v-if="!store.loading" @submit.prevent="addProduct">
     <div class="flex w-full gap-4 items-center bg-slate-800 p-4 text-white  justify-between">
       <div class="flex gap-4 w-8/12">
         <ProductDropdown
@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import {
   defineProps,
-  onBeforeMount,
+  onBeforeMount, onMounted,
   ref,
   watch,
 } from 'vue'
@@ -87,29 +87,11 @@ const onProductSelected = (arg: Product) => {
   saleStore.formData.qty = 1
 }
 
-const handleSubmitForm = () => {
-  formRef.value.validate((valid: any) => {
-  if (!valid) return
-  store.submitForm(
-    wrapFormData(store.data),
-    props.mode,
-    props.id,
-    (res) => {
-      if (res.isSuccess) router.push(pageRoute)
-    }
-  )
-  })
-}
-
 watch(() => [saleStore.formData.qty, saleStore.formData.productId], () => {
   calculateTotalPrice();
 }, {deep: true})
-watch(() => bus.value.get('submitForm'), () => {
-  handleSubmitForm()
-})
 
-onBeforeMount(() => {
+onMounted(async () => {
   setRules(props.mode === 'update')
-  store.fetchData(Number(props.id))
 })
 </script>

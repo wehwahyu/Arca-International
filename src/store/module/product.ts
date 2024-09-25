@@ -7,6 +7,7 @@ import {Product} from "/@/types/product";
 const useStore = defineStore('productStore', {
   state: () => ({
     data: useStorage('productCatalog', [] as Array<Product>),
+    dropdownList: [],
     loading: false,
   }),
   getters: {
@@ -34,9 +35,20 @@ const useStore = defineStore('productStore', {
       } as product;
     },
     fetchData() {
-      for (let i = 0; i < 100; i++) {
-        this.data.push(this.createRandKatalog());
-      }
+      return new Promise((resolve, reject) => {
+        if (!this.data.length) {
+          for (let i = 0; i < 30; i++) {
+            this.data.push(this.createRandKatalog());
+          }
+        }
+        
+        this.dropdownList = this.data.map((x: Product) => ({
+          label: x.productName,
+          value: x.id,
+          data: x,
+        }));
+        resolve(true)
+      });
     },
   },
 });

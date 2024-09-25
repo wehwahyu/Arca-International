@@ -5,6 +5,7 @@ export interface Sales {
     totalPrice: number;
     totalQty: number;
     totalProduct: number;
+    createdAt: Date;
 }
 
 export interface SaleItem {

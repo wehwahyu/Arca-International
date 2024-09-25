@@ -8,7 +8,7 @@ import {SaleItem, Sales} from "/@/types/sale";
 const useStore = defineStore('saleStore', {
   state: () => ({
     formData: {price: 0, product: undefined, productId: null, qty: 0, totalPrice: 0} as SaleItem,
-    saleData: {totalPrice:0 ,items: [], totalProduct: 0, totalQty: 0} as Sales,
+    saleData: {totalPrice:0 ,items: [], totalProduct: 0, totalQty: 0, createdAt: null} as Sales,
     transactions: useStorage('saleTransactions', [] as Array<Sales>),
     loading: false,
   }),
@@ -52,12 +52,13 @@ const useStore = defineStore('saleStore', {
       }
     },
     saveData() {
+      this.saleData.createdAt = Date.now();
       this.transactions.push(this.saleData)
       this.clearData()
     },
     clearData() {
       this.formData = {price: 0, product: undefined, productId: null, qty: 0, totalPrice: 0};
-      this.saleData = {totalPrice:0 ,items: [], totalProduct: 0, totalQty: 0};
+      this.saleData = {totalPrice:0 ,items: [], totalProduct: 0, totalQty: 0, createdAt: null};
     }
   },
 });

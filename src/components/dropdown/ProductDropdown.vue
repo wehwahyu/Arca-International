@@ -88,13 +88,6 @@ const props = defineProps({
 const loading = ref();
 const inputValue = ref(props.modelValue);
 const options = ref<Option[]>([])
-const fetchData = () => {
-  options.value = store.data.map((x: Product) => ({
-    label: x.productName,
-    value: x.id,
-    data: x,
-  }))
-}
 
 // Computed property to update inputValue when modelValue changes
 const updateInputValue = () => {
@@ -113,5 +106,9 @@ const onChange = (event: any) => {
   inputValue.value = event.target.value;
 };
 
-onMounted(() => fetchData())
+onMounted(() => {
+  store.fetchData().then(() => {
+    options.value = store.dropdownList;
+  })
+})
 </script>
