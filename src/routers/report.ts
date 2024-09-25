@@ -7,7 +7,7 @@ const route: RouteRecordRaw[] = [
     path: `/${modulePath}`,
     name: moduleName,
     component: () => import('@/pages/report/Index.vue'),
-    meta: { requiresAuth: false }
+    meta: { requiresAuth: false, pageTitle: "Reports" }
   },
 ];
 

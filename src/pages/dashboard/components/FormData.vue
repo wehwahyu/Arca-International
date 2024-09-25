@@ -85,6 +85,7 @@ const onProductSelected = (arg: Product) => {
   selectedProduct.value = arg
   saleStore.formData.product = arg
   saleStore.formData.qty = 1
+  saleStore.formData.price = saleStore.formData.product
 }
 
 watch(() => [saleStore.formData.qty, saleStore.formData.productId], () => {

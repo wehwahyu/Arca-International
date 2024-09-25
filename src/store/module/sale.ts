@@ -37,13 +37,14 @@ const useStore = defineStore('saleStore', {
       let no = 0, totalPrice = 0, totalProduct = 0, totalQuantity = 0;
       const items = this.saleData.items.map((x: SaleItem) => {
         no += 1
-        totalPrice += x.price
-        totalQuantity += x.qty
+        totalPrice += Number(x.totalPrice)
+        totalQuantity += Number(x.qty)
         return {
           ...x,
           no,
         }
       })
+      totalProduct = this.saleData.items.length
       this.saleData = {
         items,
         totalPrice,
@@ -52,8 +53,17 @@ const useStore = defineStore('saleStore', {
       }
     },
     saveData() {
-      this.saleData.createdAt = Date.now();
+      this.saleData.id = faker.string.uuid();
+      this.saleData.createdAt = Date();
       this.transactions.push(this.saleData)
+      let no = 0;
+      this.transactions = this.transactions.map(x => {
+        no += 1
+        return {
+          ...x,
+          no,
+        }
+      })
       this.clearData()
     },
     clearData() {

@@ -41,23 +41,11 @@
 </template>
 
 <script setup lang="ts">
-import {
-  defineProps,
-  onMounted,
-  PropType,
-  ref, VNode,
-  watch,
-} from 'vue'
-import type { TableColumnCtx } from 'element-plus'
-import {
-  Delete,
-  Edit,
-  View,
-} from '@element-plus/icons-vue'
+import {onMounted, ref, VNode, watch,} from 'vue'
+import type {TableColumnCtx} from 'element-plus'
+import {Delete,} from '@element-plus/icons-vue'
 import useEventsBus from '/@/composables/useEventsBus'
 import saleStore from '/@/store/module/sale'
-import RemoveDataDialog from '/@/components/dialog/RemoveDataDialog.vue'
-import { apiRoute, modulePath } from './FormHelper'
 import {currencyFormat} from "/@/helper/FormattedValue";
 import {SaleItem} from "/@/types/sale";
 import {h} from "vue-demi";
