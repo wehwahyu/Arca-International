@@ -34,11 +34,11 @@ const useStore = defineStore('saleStore', {
       }
     },
     rewriteSummary() {
-      let no = 0, totalPrice = 0, totalProduct = 0, totalQuantity = 0;
+      let no = 0, totalPrice = 0, totalProduct = 0, totalQty = 0;
       const items = this.saleData.items.map((x: SaleItem) => {
         no += 1
         totalPrice += Number(x.totalPrice)
-        totalQuantity += Number(x.qty)
+        totalQty += Number(x.qty)
         return {
           ...x,
           no,
@@ -49,7 +49,7 @@ const useStore = defineStore('saleStore', {
         items,
         totalPrice,
         totalProduct,
-        totalQuantity,
+        totalQty,
       }
     },
     saveData() {

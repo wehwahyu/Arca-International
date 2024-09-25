@@ -54,7 +54,8 @@
     "vue-echarts": "^6.6.8",
     "vue-radial-bargraph": "^0.3.0",
     "vue-radial-progress": "^0.3.2",
-    "vue-router": "4.2.2"
+    "vue-router": "4.2.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
