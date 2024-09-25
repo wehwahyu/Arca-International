@@ -1,0 +1,43 @@
+{
+  "autoFormat": "off",
+  "quoteMark": "single",
+  "wrappingStyle": {
+    "maxBindingNamesPerLine": 2,
+    "maxDefaultAndBindingNamesPerLine": 2,
+    "maxExportNamesPerLine": 2,
+    "maxNamesPerWrappedLine": 1,
+    "ignoreComments": false
+  },
+  "exclude": ["node_modules"],
+  "excludeGlob": [],
+  "groupRules": [
+    "^[zZ]",
+    "^vue",
+    "^vue(-)?$",
+    "^@element-",
+    {},
+
+    ["^/[@]/types/"],
+
+    ["^/[@]/constant", "^/[@]/lib", "^/[@]/store", "^/[@]/utils"],
+    ["^/[@]/routers", "[@]/routers"],
+    "^/[@]/layouts",
+    "^/[@]/pages",
+    ["^/[@]/components", 
+    "^[@]/components"],
+
+    "^[.]"
+  ],
+  "sortRules": {
+    "paths": ["_", "aA"],
+    "names": ["_", "aA"]
+  },
+  "keepUnused": [".*"],
+  "emptyLinesBetweenGroups": 1,
+  "emptyLinesAfterAllImports": 1,
+  "removeLastSlashInPath": false,
+  "removeLastIndexInPath": false,
+  "maxLineLength": 80,
+  "bracketSpacing": true,
+  "hasSemicolon": false
+}

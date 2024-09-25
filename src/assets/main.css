@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track{
+  background: #2D3748;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #CBD5E0;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #718096;
+}
+
+.el-card__body {
+  @apply rounded-lg !important;
+}
+
+.el-input input, .el-textarea.is-disabled textarea {
+  @apply text-gray-500 border-none !important;
+}
+
+.el-input.is-disabled .el-input__wrapper {
+  @apply bg-gray-50/45 !important;
+}
+
+.el-select__wrapper.is-disabled {
+  @apply bg-gray-50/45 !important;
+}
+
+.el-textarea.is-disabled .el-textarea__inner {
+  @apply bg-gray-50/45 !important;
+}
+.search-box .el-select__input-wrapper {
+  @apply h-11 w-full !important;
+}
+.search-box .el-select__input {
+  @apply h-full w-full !important;
+}
+.search-box .el-select__placeholder{
+  @apply italic !important;
+}
+.search-box .el-select__wrapper.is-filterable{
+  @apply bg-zinc-50 hover:bg-white focus:bg-white active:bg-white transition duration-200 !important;
+  @apply shadow;
+}
+.el-form-item {
+  @apply mb-auto !important;
+}
+.el-form-item .el-form-item__error {
+  position: unset !important;
+}
+.el-form-item__label {
+  @apply leading-normal !important;
+}
+.search-box .el-input__wrapper {
+  @apply bg-zinc-50 hover:bg-white focus:bg-white active:bg-white transition duration-200 !important;
+  @apply shadow;
+}
+.search-box .el-input__wrapper .el-input__inner {
+  @apply h-12 !important;
+  @apply placeholder:italic !important;
+}
+
+.el-alert .el-alert__content .el-alert__description {
+  @apply pt-0 mt-0 leading-none !important;
+}
+
+.el-empty {
+  @apply py-0 !important;
+}
+/* .el-dialog__body {
+  @apply p-1 border-none !important;
+}
+.el-dialog__header {
+  @apply py-0 p-0 m-0 border-b !important
+}
+.el-dialog {
+  @apply rounded-lg w-1/3 bg-gray-300 !important
+} */
+
+
+.el-alert .el-alert__content {
+  @apply w-full !important;
+}
+
+.el-button + .el-button {
+  @apply ml-1 !important;
+}
+
+.el-collapse-item__header{
+  @apply bg-gray-100 !important;
+}
+
+.el-collapse-item__content{
+  @apply bg-gray-100 !important;
+}
+
+/* .el-table .cell {
+  word-break: break-word !important;
+}
+.el-table td.el-table__cell div {
+  word-break: break-word !important;
+} */
+
+.el-menu {
+  @apply bg-gray-800 border-none !important;
+}
+
+.el-menu-item {
+  @apply text-white hover:bg-neutral-600/50 !important;
+}
+.el-menu-item.is-active{
+  @apply bg-neutral-600 border-l-8 border-primary !important;
+}
+.el-sub-menu__title {
+  @apply text-white hover:bg-neutral-600/50 !important;
+}
+
+.el-overlay {
+  @apply absolute backdrop-blur-sm !important;
+}
+
+.el-overlay-dialog {
+  @apply absolute backdrop-blur-sm !important;
+}
